@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Wavesurfer from 'react-wavesurfer.js';
-// import WaveSurfer from 'wavesurfer';
 import file from './../assets/music.mp3';
 
 const WavesurferComponent = ({ startTime, startTimeChange }) => {
@@ -11,9 +10,8 @@ const WavesurferComponent = ({ startTime, startTimeChange }) => {
   useEffect(() => {}, []);
 
   useEffect(() => {
-    console.log('setting pos: ' + startTime);
     if (startTime == pos) {
-      startTime = startTime - 0.001;
+      startTime = startTime + 0.001; // workaround for glitch that prevents playing
     }
     setPos(startTime);
     if (startTimeChange > 0) setIsPlaying(true);

@@ -55,8 +55,8 @@ export default function Canvas(props) {
       top: 167,
       width: 528,
       height: 80,
-      fill: 'yellow',
-      opacity: 0.3,
+      fill: 'blue',
+      opacity: 0,
       selectable: false,
       startTime: 0,
     });
@@ -65,8 +65,8 @@ export default function Canvas(props) {
       top: 326,
       width: 585,
       height: 80,
-      fill: 'yellow',
-      opacity: 0.3,
+      fill: 'blue',
+      opacity: 0,
       selectable: false,
       startTime: 6.5,
     });
@@ -75,8 +75,8 @@ export default function Canvas(props) {
       top: 471,
       width: 585,
       height: 80,
-      fill: 'yellow',
-      opacity: 0.3,
+      fill: 'blue',
+      opacity: 0,
       selectable: false,
       startTime: 13.4,
     });
@@ -85,8 +85,8 @@ export default function Canvas(props) {
       top: 617,
       width: 585,
       height: 80,
-      fill: 'yellow',
-      opacity: 0.3,
+      fill: 'blue',
+      opacity: 0,
       selectable: false,
       startTime: 22.16,
     });
@@ -95,8 +95,8 @@ export default function Canvas(props) {
       top: 775,
       width: 585,
       height: 80,
-      fill: 'yellow',
-      opacity: 0.3,
+      fill: 'blue',
+      opacity: 0,
       selectable: false,
       startTime: 29.63,
     });
@@ -106,6 +106,20 @@ export default function Canvas(props) {
     canvas.add(rect3);
     canvas.add(rect4);
     canvas.add(rect5);
+
+    canvas.on('mouse:over', (e) => {
+      if (e.target) {
+        e.target.opacity = 0.2;
+        canvas.renderAll();
+      }
+    });
+
+    canvas.on('mouse:out', (e) => {
+      if (e.target) {
+        e.target.opacity = 0;
+        canvas.renderAll();
+      }
+    });
 
     canvas.on('mouse:down', (e) => {
       if (e.target) {

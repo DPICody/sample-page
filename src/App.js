@@ -9,7 +9,6 @@ function App() {
   const [startTimeChanged, setStartTimeChanged] = useState(0);
 
   const playMusicAtTime = (startTime) => {
-    console.log('called playMusicAtTime');
     setStartTime(startTime);
     setStartTimeChanged((prev) => prev + 1);
   };
